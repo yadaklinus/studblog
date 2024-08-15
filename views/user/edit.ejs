@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("_header") %>
+    <body>
+        <!-- Navigation-->
+        <%- include("_nav") %>
+        <!-- Page Header-->
+       
+        <!-- Main Content-->
+        <main class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        
+                        <div class="my-5">
+                           
+                            <form id="contactForm" method="post" action="/user/edit/<%=id%>">
+                                <div class="form-floating">
+                                    <input class="form-control" id="title" value="<%=title%>" name="title" type="text" placeholder="Enter the Title" data-sb-validations="required" />
+                                    <label for="name">Title</label>
+                                    <div class="invalid-feedback" data-sb-feedback="name:required">A Title is required.</div>
+                                </div>
+                                <div class="form-floating">
+                                    <input class="form-control" id="description"  value="<%=description%>" name="description" type="text" placeholder="Enter your email..." data-sb-validations="required,email" />
+                                    <label for="email">Description</label>
+                                    <div class="invalid-feedback" data-sb-feedback="email:required"></div>
+                                    <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
+                                </div>
+                                
+                               
+                                <div class="form-floating" >
+                                    <select class="form-control" name="category" value="War" id="category" data-sb-validations="required">
+                                        <option value="<%=category%>"><%=category%>(currenr category)</option>
+                                        <option value="War">War</option>
+                                        <option value="War">Love</option>
+                                        <option value="Tech">Tech</option>
+                                        <option value="Health">Health</option>
+                                    </select>
+                                    <!-- <input class="form-control" id="author" name="author" value="Yadak" type="tel" placeholder="Enter your phone number..." data-sb-validations="required" /> -->
+                                    
+                                </div>
+                                <div class="form-floating">
+                                    <textarea class="form-control" name="markdown" id="markdown" placeholder="Enter your message here..." style="height: 12rem" ><%=markdown%></textarea>
+                                    <label for="message">Mark-Down</label>
+                                </div>
+                                <br />
+                                <button class="btn btn-primary text-uppercase" id="submitButton" type="submit">Update</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!-- Footer-->
+       <%-include("_footer")%>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <!-- * *                               SB Forms JS                               * *-->
+        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    </body>
+</html>

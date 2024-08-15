@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>the father</title>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+</head>
+<body>
+    <h1 class="m-md-5">Blog Articles</h1>
+    <a class="btn btn-success" href="article/new">new</a>
+    <p></p>
+    <div>
+        <%articles.map(x=>{%>
+            <div class="container">
+                <h2 class="large"><%=x.title%></h2>
+                <h5><%=x.createAt.toLocaleDateString()%></h5>
+                <h3><%=x.description%></h3>
+                <hr>
+                <div style="display: flex;">
+                    <a class="btn btn-success" href="article/<%= x.slug %>">reed more</a>
+                <form action="/article/<%= x.id%>?_method=DELETE" method="post">
+                    <button class="btn btn-danger" type="submit">delete</button>
+                </form>
+                </div>
+                
+            </div>
+            <br>
+        <%})%>
+    </div>
+</body>
+</html>

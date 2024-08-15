@@ -1,0 +1,14 @@
+<div>
+    <label class="mg-8" for="Title">Title</label><br>
+    <input class="form-control" required type="text" value="<%=article.title%>" name="title" id=""title>
+</div>
+<div>
+    <label for="description">description</label><br>
+    <textarea class="form-control" required name="description" id="description"><%=article.description%></textarea>
+</div>
+<div>
+    <label for="markdown">markdown</label><br>
+    <textarea class="form-control" required req name="markdown" id="" cols="30" rows="10"><%=article.markdown%></textarea>
+</div>
+<a class="btn btn-danger" href="/">cancle</a>
+<button class="btn btn-success" type="submit">Save</button>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%-include("_header")%>
+    <body>
+        <!-- Navigation-->
+        
+        <%-include("_nav")%>
+        <!-- Page Header-->
+        <header  >
+           
+        </header>
+        <!-- Main Content-->
+        <div class="container m-5 px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div id="postpreview" class="col-md-10 col-lg-8 col-xl-7">
+                    <!-- Post preview-->
+                   
+                    <!-- Pager-->
+                    
+                </div>
+            </div>
+            
+        </div>
+        <!-- Footer-->
+        <%- include("_footer")%>
+       
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+        <script>
+            fetch("/article/all")
+                .then(res => res.json())
+                .then(data => {
+                    const postpreview = document.getElementById("postpreview")
+                    data.forEach(blog => {
+                        postpreview.innerHTML += `
+                            <div class="post-preview">
+                        <a href="/article/${blog._id}">
+                            <h2 class="post-title">${blog.title}</h2>
+                            <h3 class="post-subtitle">${blog.description}</h3>
+                        </a>
+                        <p class="post-meta">
+                            Posted by
+                            <a href="#!">${blog.createdBY}></a>
+                            on ${blog.createAt}>
+                        </p>
+                    </div>
+                    <!-- Divider-->
+                    <hr class="my-4" />
+                        `
+                    });
+                    
+                })
+        </script>
+    </body>
+</html>
